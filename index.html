@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>S.P.G. – Salvadores de la Patria Gaditana</title>
+  <title>S.P.G. – Proyecto Institucional</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="Logo S.P.G.png">
@@ -13,10 +13,10 @@
 
   <style>
     :root {
-      --color-primary: #002b5c;
-      --color-primary-dark: #001a36;
-      --color-accent: #c8102e;
-      --color-bg: #f3f5f7;
+      --color-primary: #aa151b;   /* Rojo bandera España */
+      --color-secondary: #f1bf00; /* Amarillo bandera España */
+      --color-dark: #7a0f13;
+      --color-bg: #f7f7f7;
       --color-card: #ffffff;
       --color-text: #1a1a1a;
       --radius-card: 12px;
@@ -24,14 +24,9 @@
       --shadow-strong: 0 8px 22px rgba(0,0,0,0.18);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      font-family: "Inter", sans-serif;
       background: var(--color-bg);
       color: var(--color-text);
       line-height: 1.6;
@@ -40,7 +35,7 @@
     /* HEADER */
     header {
       background: var(--color-primary);
-      padding: 0.9rem 1.5rem;
+      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -49,10 +44,11 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      border-bottom: 4px solid var(--color-secondary);
     }
 
     header img {
-      height: 52px;
+      height: 55px;
     }
 
     .brand {
@@ -64,34 +60,26 @@
     .brand-title {
       font-weight: 700;
       letter-spacing: 0.03em;
-      font-size: 0.95rem;
+      font-size: 1rem;
       text-transform: uppercase;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
+      margin-left: 1.5rem;
       font-weight: 600;
-      font-size: 0.95rem;
       position: relative;
-      padding-bottom: 0.2rem;
-      transition: 0.2s;
     }
 
     nav a::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: 0;
+      bottom: -3px;
       width: 0;
       height: 2px;
-      background: #ffd447;
+      background: var(--color-secondary);
       transition: width 0.2s;
     }
 
@@ -99,150 +87,75 @@
       width: 100%;
     }
 
-    /* MENÚ MÓVIL */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      width: 22px;
-      height: 2px;
-      background: #fff;
-      border-radius: 999px;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        position: absolute;
-        top: 64px;
-        right: 0;
-        background: var(--color-primary);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0.8rem 1.5rem;
-        box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-        transform: translateY(-20px);
-        opacity: 0;
-        pointer-events: none;
-        transition: 0.25s;
-      }
-
-      nav.open {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-    }
-
     /* HERO */
     .hero {
-      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-      padding: 5.5rem 1.5rem;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
+      padding: 6rem 2rem;
       text-align: center;
       color: #fff;
+      position: relative;
     }
 
-    .hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(to right, var(--color-primary), var(--color-secondary), var(--color-primary));
     }
 
     .hero-logo {
-      width: 190px;
+      width: 200px;
       margin-bottom: 1.5rem;
       filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
-      animation: fadeIn 1.2s ease;
     }
 
     .hero-title {
       font-family: "Merriweather", serif;
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       font-weight: 700;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
     }
 
     .hero-subtitle {
-      font-size: 1.05rem;
-      max-width: 780px;
+      max-width: 800px;
       margin: 0 auto 2rem;
+      font-size: 1.1rem;
       opacity: 0.95;
     }
 
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
     .btn-primary {
-      background: var(--color-accent);
-      padding: 0.9rem 1.8rem;
-      color: #fff;
+      background: var(--color-secondary);
+      padding: 1rem 2rem;
+      color: #000;
       text-decoration: none;
       border-radius: 999px;
       font-weight: 700;
-      font-size: 0.98rem;
-      display: inline-block;
-      transition: 0.25s;
       box-shadow: var(--shadow-strong);
+      transition: 0.25s;
     }
 
     .btn-primary:hover {
-      background: #a50d25;
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      border: 1px solid #fff;
-      padding: 0.85rem 1.6rem;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      display: inline-block;
-      transition: 0.25s;
-      opacity: 0.9;
-    }
-
-    .btn-secondary:hover {
-      opacity: 1;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
     /* SECCIONES */
     section {
-      padding: 3.5rem 1.5rem;
+      padding: 4rem 2rem;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: auto;
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 2.5rem;
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--color-primary);
+      font-size: 2.2rem;
       font-family: "Merriweather", serif;
+      color: var(--color-primary);
+      margin-bottom: 2rem;
     }
 
-    .section-lead {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 2.5rem;
-      font-size: 0.98rem;
-      color: #555;
-    }
-
-    /* GRID TARJETAS */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -251,28 +164,11 @@
 
     .card {
       background: var(--color-card);
-      padding: 1.9rem;
+      padding: 2rem;
       border-radius: var(--radius-card);
       box-shadow: var(--shadow-soft);
+      border-left: 6px solid var(--color-primary);
       transition: 0.25s;
-      border: 1px solid #e5e5e5;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background: var(--color-primary);
-      transition: width 0.25s;
-    }
-
-    .card:hover::before {
-      width: 100%;
     }
 
     .card:hover {
@@ -281,81 +177,19 @@
     }
 
     .card-title {
-      margin-top: 0;
-      color: var(--color-primary);
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-    }
-
-    .card-text {
-      font-size: 0.95rem;
-      color: #444;
-    }
-
-    /* BLOQUE PILARES */
-    .block {
-      background: var(--color-card);
-      padding: 2.2rem;
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-soft);
-      border: 1px solid #e5e5e5;
-    }
-
-    .block-title {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: var(--color-primary);
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.5rem;
     }
 
-    .block-text {
-      font-size: 0.96rem;
-      color: #444;
-      margin-bottom: 1rem;
-    }
-
-    .block ul {
-      margin-left: 1.2rem;
-      font-size: 0.95rem;
-      color: #555;
-    }
-
-    .block ul li {
-      margin-bottom: 0.4rem;
-    }
-
-    /* FOOTER */
     footer {
-      background: #0d0d0d;
+      background: #111;
       color: #ccc;
       text-align: center;
-      padding: 2rem 1.5rem;
+      padding: 2rem;
       margin-top: 4rem;
-      font-size: 0.95rem;
-    }
-
-    footer span {
-      font-weight: 600;
-    }
-
-    /* ANIMACIONES */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-      .hero-title {
-        font-size: 2.1rem;
-      }
-      .hero-subtitle {
-        font-size: 0.95rem;
-      }
-      .hero-logo {
-        width: 160px;
-      }
+      border-top: 4px solid var(--color-secondary);
     }
   </style>
 </head>
@@ -365,132 +199,59 @@
   <header>
     <div class="brand">
       <img src="Logo S.P.G.png" alt="Logo SPG">
-      <div class="brand-title">S.P.G. · Cádiz</div>
+      <div class="brand-title">Proyecto Institucional · España</div>
     </div>
 
-    <div class="menu-toggle" id="menuToggle">
-      <span></span><span></span><span></span>
-    </div>
-
-    <nav id="mainNav">
+    <nav>
       <a href="#programa">Programa</a>
       <a href="#pilares">Pilares</a>
-      <a href="#liderazgo">Liderazgo</a>
+      <a href="#estructura">Estructura</a>
     </nav>
   </header>
 
   <section class="hero">
-    <div class="hero-inner">
-      <img src="Logo S.P.G.png" alt="Logo SPG" class="hero-logo">
-      <h1 class="hero-title">Salvadores de la Patria Gaditana</h1>
-      <p class="hero-subtitle">
-        Proyecto institucional orientado a la organización, la gestión moderna y el fortalecimiento
-        de la vida pública en Cádiz. Este espacio web presenta de forma clara y ordenada la estructura
-        y las líneas generales del proyecto.
-      </p>
-      <div class="hero-actions">
-        <a href="#programa" class="btn-primary">Ver estructura del programa</a>
-        <a href="#pilares" class="btn-secondary">Consultar pilares principales</a>
-      </div>
-    </div>
+    <img src="Logo S.P.G.png" alt="Logo SPG" class="hero-logo">
+    <h1 class="hero-title">Proyecto Institucional Español</h1>
+    <p class="hero-subtitle">
+      Plataforma organizativa orientada a la gestión, la estructura interna y la presentación de líneas generales.
+      Este espacio web ofrece una base visual moderna con estética española.
+    </p>
+    <a href="#programa" class="btn-primary">Acceder al contenido</a>
   </section>
 
   <section id="programa">
-    <h2 class="section-title">Estructura general del programa</h2>
-    <p class="section-lead">
-      A continuación se presenta una estructura genérica de áreas de trabajo. Puedes adaptar los textos
-      y contenidos a las líneas concretas que quieras desarrollar.
-    </p>
+    <h2 class="section-title">Áreas Generales</h2>
 
     <div class="grid">
       <div class="card">
-        <h3 class="card-title">Área de orden público</h3>
-        <p class="card-text">
-          Espacio destinado a recoger propuestas relacionadas con la organización de la seguridad,
-          la convivencia y el respeto a las normas en el ámbito local.
-        </p>
+        <h3 class="card-title">Área 1</h3>
+        <p>Espacio para definir contenidos generales del proyecto.</p>
       </div>
+
       <div class="card">
-        <h3 class="card-title">Área de identidad y cultura</h3>
-        <p class="card-text">
-          Bloque orientado a la protección, difusión y puesta en valor de la historia, las tradiciones
-          y la vida cultural de la ciudad.
-        </p>
+        <h3 class="card-title">Área 2</h3>
+        <p>Bloque destinado a organización interna y estructura.</p>
       </div>
+
       <div class="card">
-        <h3 class="card-title">Área social y económica</h3>
-        <p class="card-text">
-          Sección para definir medidas de apoyo a familias, profesionales y tejido económico local,
-          así como líneas de desarrollo y estabilidad.
-        </p>
+        <h3 class="card-title">Área 3</h3>
+        <p>Sección para líneas de trabajo y desarrollo institucional.</p>
       </div>
+
       <div class="card">
-        <h3 class="card-title">Área de gestión administrativa</h3>
-        <p class="card-text">
-          Apartado dedicado a la mejora de la administración, la simplificación de trámites y la
-          modernización de los procesos internos.
-        </p>
+        <h3 class="card-title">Área 4</h3>
+        <p>Contenido adaptable según las necesidades del proyecto.</p>
       </div>
-    </div>
-  </section>
-
-  <section id="pilares">
-    <h2 class="section-title">Pilares principales</h2>
-    <p class="section-lead">
-      Este bloque recoge de forma ordenada los pilares sobre los que se articula el proyecto. Puedes
-      sustituir los textos por los contenidos específicos que consideres.
-    </p>
-
-    <div class="block">
-      <h3 class="block-title">Pilar 1 · Organización y seguridad en la ciudad</h3>
-      <p class="block-text">
-        Espacio para detallar medidas orientadas a garantizar una ciudad ordenada, con presencia
-        coordinada de servicios y una convivencia basada en el respeto al marco legal.
-      </p>
-      <ul>
-        <li>Definición de líneas de trabajo en materia de seguridad y convivencia.</li>
-        <li>Coordinación con servicios y organismos competentes.</li>
-        <li>Actualización de normas y ordenanzas en el ámbito local.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="liderazgo">
-    <h2 class="section-title">Liderazgo y estructura interna</h2>
-    <p class="section-lead">
-      En este apartado puedes presentar la figura de referencia del proyecto y la organización interna:
-      cargos, responsabilidades y equipos de trabajo.
-    </p>
-
-    <div class="block">
-      <h3 class="block-title">Presidencia del proyecto</h3>
-      <p class="block-text">
-        Este espacio está destinado a la presentación de la persona que encabeza el proyecto, su
-        trayectoria y su compromiso con la ciudad y con la estructura que se describe en esta web.
-      </p>
-      <p class="block-text">
-        Puedes incluir aquí una breve biografía, líneas de trabajo prioritarias y el enfoque general
-        que se quiere dar a la organización.
-      </p>
     </div>
   </section>
 
   <footer>
-    <span>S.P.G. – Salvadores de la Patria Gaditana · Cádiz</span><br>
+    Proyecto Institucional Español · Plataforma de Organización<br>
     © <span id="year"></span> Todos los derechos reservados.
   </footer>
 
   <script>
-    // Año dinámico
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Menú móvil
-    const menuToggle = document.getElementById('menuToggle');
-    const mainNav = document.getElementById('mainNav');
-
-    menuToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('open');
-    });
   </script>
 
 </body>
