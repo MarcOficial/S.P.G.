@@ -8,109 +8,241 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="Logo S.P.G.png">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    :root {
+      --color-primary: #002b5c;
+      --color-primary-dark: #001a36;
+      --color-accent: #c8102e;
+      --color-bg: #f3f5f7;
+      --color-card: #ffffff;
+      --color-text: #1a1a1a;
+      --radius-card: 12px;
+      --shadow-soft: 0 4px 14px rgba(0,0,0,0.08);
+      --shadow-strong: 0 8px 22px rgba(0,0,0,0.18);
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: "Inter", sans-serif;
-      background: #f3f5f7;
-      color: #1a1a1a;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
       line-height: 1.6;
     }
 
     /* HEADER */
     header {
-      background: #002b5c;
-      padding: 1.2rem 2rem;
+      background: var(--color-primary);
+      padding: 0.9rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: #fff;
       box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     header img {
-      height: 60px;
+      height: 52px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
     }
 
     nav a {
       color: #fff;
-      margin-left: 1.5rem;
       text-decoration: none;
       font-weight: 600;
+      font-size: 0.95rem;
+      position: relative;
+      padding-bottom: 0.2rem;
       transition: 0.2s;
     }
 
-    nav a:hover {
-      opacity: 0.7;
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: #ffd447;
+      transition: width 0.2s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* MENÚ MÓVIL */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      border-radius: 999px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 64px;
+        right: 0;
+        background: var(--color-primary);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.8rem 1.5rem;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+        transform: translateY(-20px);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.25s;
+      }
+
+      nav.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
     }
 
     /* HERO */
     .hero {
-      background: linear-gradient(135deg, #002b5c, #001a36);
-      padding: 6rem 2rem;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+      padding: 5.5rem 1.5rem;
       text-align: center;
       color: #fff;
-      position: relative;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .hero-logo {
-      width: 200px;
+      width: 190px;
       margin-bottom: 1.5rem;
       filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
       animation: fadeIn 1.2s ease;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      letter-spacing: -1px;
+    .hero-title {
+      font-family: "Merriweather", serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 850px;
+    .hero-subtitle {
+      font-size: 1.05rem;
+      max-width: 780px;
       margin: 0 auto 2rem;
       opacity: 0.95;
     }
 
-    .btn {
-      background: #c8102e;
-      padding: 1rem 2rem;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      display: inline-block;
-      transition: 0.25s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
-    .btn:hover {
+    .btn-primary {
+      background: var(--color-accent);
+      padding: 0.9rem 1.8rem;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.98rem;
+      display: inline-block;
+      transition: 0.25s;
+      box-shadow: var(--shadow-strong);
+    }
+
+    .btn-primary:hover {
       background: #a50d25;
-      transform: translateY(-3px);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid #fff;
+      padding: 0.85rem 1.6rem;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-block;
+      transition: 0.25s;
+      opacity: 0.9;
+    }
+
+    .btn-secondary:hover {
+      opacity: 1;
+      transform: translateY(-2px);
     }
 
     /* SECCIONES */
     section {
-      padding: 4rem 2rem;
+      padding: 3.5rem 1.5rem;
       max-width: 1200px;
-      margin: auto;
+      margin: 0 auto;
     }
 
-    h2 {
+    .section-title {
       text-align: center;
       margin-bottom: 2.5rem;
-      font-size: 2.3rem;
+      font-size: 2rem;
       font-weight: 800;
-      color: #002b5c;
+      color: var(--color-primary);
+      font-family: "Merriweather", serif;
     }
 
-    /* TARJETAS */
+    .section-lead {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      font-size: 0.98rem;
+      color: #555;
+    }
+
+    /* GRID TARJETAS */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -118,24 +250,79 @@
     }
 
     .card {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      background: var(--color-card);
+      padding: 1.9rem;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
       transition: 0.25s;
       border: 1px solid #e5e5e5;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--color-primary);
+      transition: width 0.25s;
+    }
+
+    .card:hover::before {
+      width: 100%;
     }
 
     .card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      box-shadow: var(--shadow-strong);
     }
 
-    .card h3 {
+    .card-title {
       margin-top: 0;
-      color: #002b5c;
+      color: var(--color-primary);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-text {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    /* BLOQUE PILARES */
+    .block {
+      background: var(--color-card);
+      padding: 2.2rem;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid #e5e5e5;
+    }
+
+    .block-title {
       font-size: 1.4rem;
       font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.8rem;
+    }
+
+    .block-text {
+      font-size: 0.96rem;
+      color: #444;
+      margin-bottom: 1rem;
+    }
+
+    .block ul {
+      margin-left: 1.2rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .block ul li {
+      margin-bottom: 0.4rem;
     }
 
     /* FOOTER */
@@ -143,9 +330,13 @@
       background: #0d0d0d;
       color: #ccc;
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1.5rem;
       margin-top: 4rem;
       font-size: 0.95rem;
+    }
+
+    footer span {
+      font-weight: 600;
     }
 
     /* ANIMACIONES */
@@ -153,99 +344,153 @@
       from { opacity: 0; transform: scale(0.95); }
       to { opacity: 1; transform: scale(1); }
     }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 2.1rem;
+      }
+      .hero-subtitle {
+        font-size: 0.95rem;
+      }
+      .hero-logo {
+        width: 160px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
   <header>
-    <img src="Logo S.P.G.png" alt="Logo SPG">
-    <nav>
+    <div class="brand">
+      <img src="Logo S.P.G.png" alt="Logo SPG">
+      <div class="brand-title">S.P.G. · Cádiz</div>
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
+    </div>
+
+    <nav id="mainNav">
       <a href="#programa">Programa</a>
       <a href="#pilares">Pilares</a>
       <a href="#liderazgo">Liderazgo</a>
-      <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
   <section class="hero">
-    <img src="Logo S.P.G.png" alt="Logo SPG" class="hero-logo">
-    <h1>S.P.G. – Salvadores de la Patria Gaditana</h1>
-    <p>
-      Un proyecto moderno, firme y comprometido con Cádiz.  
-      Seguridad, identidad y justicia social para una ciudad que merece avanzar con fuerza.
-    </p>
-    <a href="#programa" class="btn">Ver Programa</a>
+    <div class="hero-inner">
+      <img src="Logo S.P.G.png" alt="Logo SPG" class="hero-logo">
+      <h1 class="hero-title">Salvadores de la Patria Gaditana</h1>
+      <p class="hero-subtitle">
+        Proyecto institucional orientado a la organización, la gestión moderna y el fortalecimiento
+        de la vida pública en Cádiz. Este espacio web presenta de forma clara y ordenada la estructura
+        y las líneas generales del proyecto.
+      </p>
+      <div class="hero-actions">
+        <a href="#programa" class="btn-primary">Ver estructura del programa</a>
+        <a href="#pilares" class="btn-secondary">Consultar pilares principales</a>
+      </div>
+    </div>
   </section>
 
   <section id="programa">
-    <h2>Objetivos Estratégicos</h2>
+    <h2 class="section-title">Estructura general del programa</h2>
+    <p class="section-lead">
+      A continuación se presenta una estructura genérica de áreas de trabajo. Puedes adaptar los textos
+      y contenidos a las líneas concretas que quieras desarrollar.
+    </p>
+
     <div class="grid">
       <div class="card">
-        <h3>Orden Público</h3>
-        <p>Refuerzo de la seguridad, presencia policial y prevención del delito.</p>
+        <h3 class="card-title">Área de orden público</h3>
+        <p class="card-text">
+          Espacio destinado a recoger propuestas relacionadas con la organización de la seguridad,
+          la convivencia y el respeto a las normas en el ámbito local.
+        </p>
       </div>
       <div class="card">
-        <h3>Identidad Gaditana</h3>
-        <p>Protección y promoción de la cultura, tradiciones e historia de Cádiz.</p>
+        <h3 class="card-title">Área de identidad y cultura</h3>
+        <p class="card-text">
+          Bloque orientado a la protección, difusión y puesta en valor de la historia, las tradiciones
+          y la vida cultural de la ciudad.
+        </p>
       </div>
       <div class="card">
-        <h3>Justicia Social</h3>
-        <p>Apoyo a familias, autónomos y pequeñas empresas locales.</p>
+        <h3 class="card-title">Área social y económica</h3>
+        <p class="card-text">
+          Sección para definir medidas de apoyo a familias, profesionales y tejido económico local,
+          así como líneas de desarrollo y estabilidad.
+        </p>
       </div>
       <div class="card">
-        <h3>Gestión Eficiente</h3>
-        <p>Administración ágil, moderna y transparente para todos los ciudadanos.</p>
+        <h3 class="card-title">Área de gestión administrativa</h3>
+        <p class="card-text">
+          Apartado dedicado a la mejora de la administración, la simplificación de trámites y la
+          modernización de los procesos internos.
+        </p>
       </div>
     </div>
   </section>
 
   <section id="pilares">
-    <h2>Pilares del Programa</h2>
+    <h2 class="section-title">Pilares principales</h2>
+    <p class="section-lead">
+      Este bloque recoge de forma ordenada los pilares sobre los que se articula el proyecto. Puedes
+      sustituir los textos por los contenidos específicos que consideres.
+    </p>
 
-    <div class="card">
-      <h3>1. Seguridad y Control de Calles</h3>
-      <p>
-        Una ciudad segura es una ciudad que avanza.  
-        Refuerzo de patrullas, coordinación institucional y planes específicos contra la delincuencia.
+    <div class="block">
+      <h3 class="block-title">Pilar 1 · Organización y seguridad en la ciudad</h3>
+      <p class="block-text">
+        Espacio para detallar medidas orientadas a garantizar una ciudad ordenada, con presencia
+        coordinada de servicios y una convivencia basada en el respeto al marco legal.
       </p>
       <ul>
-        <li>Patrullas reforzadas en zonas clave.</li>
-        <li>Colaboración ciudadana dentro del marco legal.</li>
-        <li>Revisión de ordenanzas para proteger el espacio público.</li>
+        <li>Definición de líneas de trabajo en materia de seguridad y convivencia.</li>
+        <li>Coordinación con servicios y organismos competentes.</li>
+        <li>Actualización de normas y ordenanzas en el ámbito local.</li>
       </ul>
     </div>
   </section>
 
   <section id="liderazgo">
-    <h2>Liderazgo</h2>
-    <div class="card">
-      <h3>Presidente del Partido</h3>
-      <p>
-        <strong>Torrente</strong> lidera el proyecto del S.P.G., con el compromiso de trabajar
-        por una Cádiz más segura, justa y orgullosa de su identidad.
-      </p>
-    </div>
-  </section>
+    <h2 class="section-title">Liderazgo y estructura interna</h2>
+    <p class="section-lead">
+      En este apartado puedes presentar la figura de referencia del proyecto y la organización interna:
+      cargos, responsabilidades y equipos de trabajo.
+    </p>
 
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <div class="card">
-      <p>¿Quieres conocer más o participar?</p>
-      <p>
-        Para contactar directamente con el partido, envía un mensaje privado (MD) a:<br>
-        <strong>@yosoydec</strong> en Discord.
+    <div class="block">
+      <h3 class="block-title">Presidencia del proyecto</h3>
+      <p class="block-text">
+        Este espacio está destinado a la presentación de la persona que encabeza el proyecto, su
+        trayectoria y su compromiso con la ciudad y con la estructura que se describe en esta web.
+      </p>
+      <p class="block-text">
+        Puedes incluir aquí una breve biografía, líneas de trabajo prioritarias y el enfoque general
+        que se quiere dar a la organización.
       </p>
     </div>
   </section>
 
   <footer>
-    S.P.G. – Salvadores de la Patria Gaditana · Cádiz<br>
+    <span>S.P.G. – Salvadores de la Patria Gaditana · Cádiz</span><br>
     © <span id="year"></span> Todos los derechos reservados.
   </footer>
 
   <script>
+    // Año dinámico
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menú móvil
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('open');
+    });
   </script>
 
 </body>
