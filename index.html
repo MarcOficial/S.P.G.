@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>S.P.G. – Salvadores de la Patria Gaditana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: system-ui, sans-serif; margin:0; background:#f5f5f5; color:#222; }
+    header { background:#002b5c; color:#fff; padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center; }
+    header h1 { margin:0; font-size:1.6rem; }
+    nav a { color:#fff; margin-left:1rem; text-decoration:none; font-weight:600; }
+    .hero { padding:3rem 2rem; background:#ffffff; text-align:center; }
+    .hero h2 { font-size:2rem; margin-bottom:1rem; }
+    .hero p { max-width:800px; margin:0 auto 1rem; }
+    .btn { display:inline-block; padding:0.7rem 1.4rem; background:#c8102e; color:#fff; text-decoration:none; border-radius:4px; font-weight:600; }
+    section { padding:2rem; max-width:1100px; margin:0 auto; }
+    h3 { margin-top:0; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; }
+    .card { background:#fff; padding:1.5rem; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,0.06); }
+    footer { background:#111; color:#ccc; padding:1.5rem 2rem; font-size:0.9rem; text-align:center; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🇪🇸 S.P.G. – Salvadores de la Patria Gaditana</h1>
+    <nav>
+      <a href="#programa">Programa</a>
+      <a href="#pilares">Pilares</a>
+      <a href="#liderazgo">Liderazgo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Programa de gobierno por el orden, la justicia y la tradición</h2>
+      <p>
+        Cádiz vive un momento clave de su historia. Nuestro proyecto político nace con la voluntad
+        de reforzar la seguridad, proteger la identidad gaditana y garantizar una justicia social
+        que funcione para quienes viven, trabajan y construyen futuro en nuestra tierra.
+      </p>
+      <a href="#programa" class="btn">Ver programa completo</a>
+    </section>
+
+    <section id="programa">
+      <h3>Objetivos estratégicos</h3>
+      <div class="grid">
+        <div class="card">
+          <h4>Restauración del orden público</h4>
+          <p>
+            Impulsar políticas de seguridad coordinadas con las fuerzas y cuerpos de seguridad,
+            priorizando la prevención, la presencia en las calles y el respeto a la ley.
+          </p>
+        </div>
+        <div class="card">
+          <h4>Protección de la identidad local</h4>
+          <p>
+            Promover y difundir las tradiciones, la cultura y la historia de Cádiz, integrando a
+            quienes llegan y respetan los valores de la ciudad.
+          </p>
+        </div>
+        <div class="card">
+          <h4>Justicia social y fiscal</h4>
+          <p>
+            Diseñar un modelo económico que apoye a las familias, autónomos y pequeñas empresas
+            gaditanas, fomentando la estabilidad y el arraigo.
+          </p>
+        </div>
+        <div class="card">
+          <h4>Soberanía administrativa</h4>
+          <p>
+            Reforzar la capacidad de gestión local, simplificando trámites y haciendo la
+            administración más ágil, transparente y cercana al ciudadano.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pilares">
+      <h3>Pilares del programa de gobierno</h3>
+
+      <div class="card">
+        <h4>1. Seguridad y control de calles</h4>
+        <p>
+          Apostamos por una ciudad segura, con presencia constante de patrullas en zonas clave,
+          coordinación entre administraciones y planes específicos para reducir la delincuencia.
+        </p>
+        <ul>
+          <li>Refuerzo de patrullas en barrios estratégicos.</li>
+          <li>Programas de colaboración ciudadana dentro del marco legal.</li>
+          <li>Revisión de ordenanzas municipales para proteger el espacio público.</li>
+        </ul>
+      </div>
+
+      <!-- Aquí puedes seguir añadiendo más pilares con el mismo formato .card -->
+    </section>
+
+    <section id="liderazgo">
+      <h3>Liderazgo</h3>
+      <div class="card">
+        <h4>Presidente del partido</h4>
+        <p>
+          <strong>Torrente</strong> encabeza el proyecto del S.P.G., con el compromiso de trabajar
+          por una Cádiz más segura, justa y orgullosa de su identidad, siempre dentro del respeto
+          al marco democrático y al Estado de derecho.
+        </p>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h3>Contacto y participación</h3>
+      <div class="card">
+        <p>
+          ¿Quieres conocer más sobre el S.P.G. o participar en nuestras actividades?
+        </p>
+        <p>
+          Correo: <a href="mailto:info@spg-cadiz.es">info@spg-cadiz.es</a><br />
+          Redes sociales: @SPG_Cadiz
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    S.P.G. – Salvadores de la Patria Gaditana · Cádiz<br />
+    © <span id="year"></span> Todos los derechos reservados.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
