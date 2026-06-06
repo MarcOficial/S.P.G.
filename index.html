@@ -3,65 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>S.P.G. – Proyecto Institucional</title>
+  <title>S.P.G. – Plataforma Institucional</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="Logo S.P.G.png">
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --color-primary: #aa151b;   /* Rojo bandera España */
-      --color-secondary: #f1bf00; /* Amarillo bandera España */
-      --color-dark: #7a0f13;
-      --color-bg: #f7f7f7;
-      --color-card: #ffffff;
-      --color-text: #1a1a1a;
-      --radius-card: 12px;
-      --shadow-soft: 0 4px 14px rgba(0,0,0,0.08);
+      --rojo: #aa151b;
+      --amarillo: #f1bf00;
+      --rojo-oscuro: #7a0f13;
+      --bg: #f7f7f7;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --radius: 12px;
+      --shadow: 0 4px 14px rgba(0,0,0,0.08);
       --shadow-strong: 0 8px 22px rgba(0,0,0,0.18);
     }
 
     body {
       margin: 0;
       font-family: "Inter", sans-serif;
-      background: var(--color-bg);
-      color: var(--color-text);
-      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
     }
 
     /* HEADER */
     header {
-      background: var(--color-primary);
+      background: var(--rojo);
       padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: #fff;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.25);
       position: sticky;
       top: 0;
       z-index: 100;
-      border-bottom: 4px solid var(--color-secondary);
+      border-bottom: 4px solid var(--amarillo);
     }
 
     header img {
       height: 55px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .brand-title {
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      font-size: 1rem;
-      text-transform: uppercase;
     }
 
     nav a {
@@ -79,7 +62,7 @@
       bottom: -3px;
       width: 0;
       height: 2px;
-      background: var(--color-secondary);
+      background: var(--amarillo);
       transition: width 0.2s;
     }
 
@@ -87,23 +70,30 @@
       width: 100%;
     }
 
+    /* BANDERA ANIMADA HEADER */
+    .flag-strip {
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--rojo), var(--amarillo), var(--rojo));
+      background-size: 200% 100%;
+      animation: wave 3s linear infinite;
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+    }
+
+    @keyframes wave {
+      0% { background-position: 0% 0; }
+      100% { background-position: 200% 0; }
+    }
+
     /* HERO */
     .hero {
-      background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
+      background: linear-gradient(135deg, var(--rojo), var(--rojo-oscuro));
       padding: 6rem 2rem;
       text-align: center;
       color: #fff;
       position: relative;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 8px;
-      background: linear-gradient(to right, var(--color-primary), var(--color-secondary), var(--color-primary));
     }
 
     .hero-logo {
@@ -127,7 +117,7 @@
     }
 
     .btn-primary {
-      background: var(--color-secondary);
+      background: var(--amarillo);
       padding: 1rem 2rem;
       color: #000;
       text-decoration: none;
@@ -152,10 +142,25 @@
       text-align: center;
       font-size: 2.2rem;
       font-family: "Merriweather", serif;
-      color: var(--color-primary);
+      color: var(--rojo);
       margin-bottom: 2rem;
     }
 
+    /* SEPARADOR ESPAÑOL */
+    .separator-es {
+      width: 160px;
+      height: 12px;
+      margin: 2.5rem auto;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--rojo) 0 20px,
+        var(--amarillo) 20px 40px
+      );
+      border-radius: 6px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+
+    /* TARJETAS */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -163,11 +168,11 @@
     }
 
     .card {
-      background: var(--color-card);
+      background: var(--card);
       padding: 2rem;
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-soft);
-      border-left: 6px solid var(--color-primary);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border-left: 6px solid var(--rojo);
       transition: 0.25s;
     }
 
@@ -179,17 +184,26 @@
     .card-title {
       font-size: 1.3rem;
       font-weight: 700;
-      color: var(--color-primary);
+      color: var(--rojo);
       margin-bottom: 0.5rem;
     }
 
+    /* FOOTER */
     footer {
       background: #111;
       color: #ccc;
       text-align: center;
       padding: 2rem;
       margin-top: 4rem;
-      border-top: 4px solid var(--color-secondary);
+      border-top: 4px solid var(--amarillo);
+    }
+
+    .footer-flag {
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(to right, var(--rojo), var(--amarillo), var(--rojo));
+      margin-bottom: 1rem;
+      border-radius: 4px;
     }
   </style>
 </head>
@@ -199,54 +213,78 @@
   <header>
     <div class="brand">
       <img src="Logo S.P.G.png" alt="Logo SPG">
-      <div class="brand-title">Proyecto Institucional · España</div>
+      <div class="brand-title">S.P.G. · Cádiz</div>
     </div>
 
     <nav>
       <a href="#programa">Programa</a>
+      <a href="#objetivos">Objetivos</a>
       <a href="#pilares">Pilares</a>
-      <a href="#estructura">Estructura</a>
     </nav>
+
+    <div class="flag-strip"></div>
   </header>
 
   <section class="hero">
     <img src="Logo S.P.G.png" alt="Logo SPG" class="hero-logo">
-    <h1 class="hero-title">Proyecto Institucional Español</h1>
+    <h1 class="hero-title">Plataforma Institucional</h1>
     <p class="hero-subtitle">
-      Plataforma organizativa orientada a la gestión, la estructura interna y la presentación de líneas generales.
-      Este espacio web ofrece una base visual moderna con estética española.
+      Estructura oficial del proyecto. Aquí podrás insertar tu contenido completo.
     </p>
-    <a href="#programa" class="btn-primary">Acceder al contenido</a>
+    <a href="#programa" class="btn-primary">Acceder</a>
   </section>
 
+  <div class="separator-es"></div>
+
   <section id="programa">
-    <h2 class="section-title">Áreas Generales</h2>
+    <h2 class="section-title">Programa General</h2>
+
+    <!-- PEGAR AQUÍ TU PROGRAMA -->
+    <p>Inserta aquí tu contenido del programa.</p>
+  </section>
+
+  <div class="separator-es"></div>
+
+  <section id="objetivos">
+    <h2 class="section-title">Objetivos Estratégicos</h2>
 
     <div class="grid">
+
       <div class="card">
-        <h3 class="card-title">Área 1</h3>
-        <p>Espacio para definir contenidos generales del proyecto.</p>
+        <h3 class="card-title">Objetivo 1</h3>
+        <p>Inserta aquí tu texto.</p>
       </div>
 
       <div class="card">
-        <h3 class="card-title">Área 2</h3>
-        <p>Bloque destinado a organización interna y estructura.</p>
+        <h3 class="card-title">Objetivo 2</h3>
+        <p>Inserta aquí tu texto.</p>
       </div>
 
       <div class="card">
-        <h3 class="card-title">Área 3</h3>
-        <p>Sección para líneas de trabajo y desarrollo institucional.</p>
+        <h3 class="card-title">Objetivo 3</h3>
+        <p>Inserta aquí tu texto.</p>
       </div>
 
       <div class="card">
-        <h3 class="card-title">Área 4</h3>
-        <p>Contenido adaptable según las necesidades del proyecto.</p>
+        <h3 class="card-title">Objetivo 4</h3>
+        <p>Inserta aquí tu texto.</p>
       </div>
+
     </div>
   </section>
 
+  <div class="separator-es"></div>
+
+  <section id="pilares">
+    <h2 class="section-title">Pilares del Proyecto</h2>
+
+    <!-- PEGAR AQUÍ TUS PILARES -->
+    <p>Inserta aquí tus pilares.</p>
+  </section>
+
   <footer>
-    Proyecto Institucional Español · Plataforma de Organización<br>
+    <div class="footer-flag"></div>
+    S.P.G. · Plataforma Institucional Española<br>
     © <span id="year"></span> Todos los derechos reservados.
   </footer>
 
@@ -256,3 +294,4 @@
 
 </body>
 </html>
+
