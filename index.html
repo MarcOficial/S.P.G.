@@ -8,14 +8,19 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="Logo S.P.G.png">
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: "Inter", system-ui, sans-serif;
-      background: #f4f4f4;
-      color: #222;
+      font-family: "Inter", sans-serif;
+      background: #f3f5f7;
+      color: #1a1a1a;
+      line-height: 1.6;
     }
 
+    /* HEADER */
     header {
       background: #002b5c;
       padding: 1.2rem 2rem;
@@ -23,80 +28,130 @@
       justify-content: space-between;
       align-items: center;
       color: #fff;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.25);
     }
 
     header img {
-      height: 55px;
+      height: 60px;
     }
 
     nav a {
       color: #fff;
-      margin-left: 1.2rem;
+      margin-left: 1.5rem;
       text-decoration: none;
       font-weight: 600;
+      transition: 0.2s;
     }
 
+    nav a:hover {
+      opacity: 0.7;
+    }
+
+    /* HERO */
     .hero {
-      background: #001a36;
-      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #002b5c, #001a36);
+      padding: 6rem 2rem;
       text-align: center;
       color: #fff;
+      position: relative;
     }
 
     .hero-logo {
-      width: 180px;
+      width: 200px;
       margin-bottom: 1.5rem;
-      filter: drop-shadow(0 0 8px rgba(0,0,0,0.4));
+      filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+      animation: fadeIn 1.2s ease;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 850px;
+      margin: 0 auto 2rem;
+      opacity: 0.95;
     }
 
     .btn {
       background: #c8102e;
-      padding: 0.9rem 1.6rem;
+      padding: 1rem 2rem;
       color: #fff;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.1rem;
       display: inline-block;
-      margin-top: 1rem;
+      transition: 0.25s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     }
 
+    .btn:hover {
+      background: #a50d25;
+      transform: translateY(-3px);
+    }
+
+    /* SECCIONES */
     section {
-      padding: 3rem 2rem;
-      max-width: 1100px;
+      padding: 4rem 2rem;
+      max-width: 1200px;
       margin: auto;
     }
 
     h2 {
       text-align: center;
-      margin-bottom: 2rem;
-      font-size: 2rem;
+      margin-bottom: 2.5rem;
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: #002b5c;
     }
 
+    /* TARJETAS */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
     }
 
     .card {
       background: #fff;
-      padding: 1.8rem;
-      border-radius: 8px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      transition: 0.25s;
+      border: 1px solid #e5e5e5;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
     .card h3 {
       margin-top: 0;
       color: #002b5c;
+      font-size: 1.4rem;
+      font-weight: 700;
     }
 
+    /* FOOTER */
     footer {
-      background: #111;
+      background: #0d0d0d;
       color: #ccc;
       text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
+      padding: 2rem;
+      margin-top: 4rem;
+      font-size: 0.95rem;
+    }
+
+    /* ANIMACIONES */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
@@ -136,11 +191,11 @@
       </div>
       <div class="card">
         <h3>Justicia Social</h3>
-        <p>Modelo económico que apoye a familias, autónomos y pequeñas empresas.</p>
+        <p>Apoyo a familias, autónomos y pequeñas empresas locales.</p>
       </div>
       <div class="card">
         <h3>Gestión Eficiente</h3>
-        <p>Administración ágil, transparente y cercana al ciudadano.</p>
+        <p>Administración ágil, moderna y transparente para todos los ciudadanos.</p>
       </div>
     </div>
   </section>
